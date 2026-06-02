@@ -1,0 +1,89 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Update exercises inputs",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/scripts/update_tasks_inputs.py",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run current Prolog file",
+      "type": "shell",
+      "command": "swipl -q -s \"${file}\" -g halt",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run current Haskell file",
+      "type": "shell",
+      "command": "runghc \"${file}\"",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run all Prolog exercises",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/run_prolog.sh all",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run all Haskell exercises",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/run_haskell.sh all",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Prolog exercise (select)",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/run_prolog.sh ${input:exercise}",
+      "dependsOn": "Update exercises inputs",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Haskell exercise (select)",
+      "type": "shell",
+      "command": "${workspaceFolder}/scripts/run_haskell.sh ${input:exercise}",
+      "dependsOn": "Update exercises inputs",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "exercise",
+      "type": "pickString",
+      "description": "Seleccione la carpeta del ejercicio",
+      "options": [
+        "ej1",
+        "ej2"
+      ],
+      "default": "ej1"
+    }
+  ]
+}
