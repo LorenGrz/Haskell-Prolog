@@ -1,0 +1,202 @@
+1) General
+a) Enumere dos diferencia entre lenguajes de programación y paradigmas.
+b) Enumere 2 paradigmas vistos en clase y dé un ejemplo de lenguajes que lo implementan.
+c) Existen lenguajes híbridos? Enumere dos.
+d) Dé un ejemplo de función partida.
+
+2) Funcional
+a) Cual es el dominio e imagen de las siguientes funciones:
+	     Mealcanza largo = largo <= largoDeListon
+	     CuantoMesobra cantidad = largoDeListon – cantidad
+b) Para que se utiliza la Unicidad y la Existencia?
+c) Que implica el principio de sustitución?
+d) Que es el Pattern Matching?
+e) Enumere 3 tipos de datos usados en Haskell
+f) Que significa inferencia de tipos sobre una función dada?
+g) Cual es la diferencia entre declarar una t-upla y un Data?
+h) Cual es la diferencia entre Aplicación Parcial y Composición de Funciones?
+i) A que se denomina Recursividad? De un ejemplo.
+j) A que se denomina Orden Superior? Enumere dos funciones que sean de orden superior.
+
+3) Lógico
+a) Cual es la diferencia entre un predicado y una función de Haskell?
+b) A que se llama evaluación EAGER?
+c) A que se denomina Átomo, Hechos y Reglas?
+d) Cual es la diferencia entre consultas individuales y existenciales?
+e) Como se mezcla la aritmética en este paradigma? Como se usa el =?
+f) Como se relacionan los functores con el orden superior de funcional?
+
+1)
+a) 
+- Nivel de abstracción / Concepto vs. Implementación: Un paradigma es un modelo,
+enfoque o filosofía de desarrollo que determina cómo se estructura el pensamiento
+para resolver un problema (un plano mental).
+Un lenguaje de programación es una herramienta concreta, 
+con una sintaxis y semántica específicas, 
+utilizada para escribir código siguiendo uno o más paradigmas. 
+- Cardinalidad y Relación: Los paradigmas son conceptos universales y abstractos (no se "ejecutan").
+Los lenguajes son tecnologías tangibles. 
+Un lenguaje puede adoptar un único paradigma (puro) o múltiples paradigmas (multiparadigma),
+pero un paradigma existe de forma independiente a cualquier lenguaje.
+
+b)
+- Paradigma Funcional: Centrado en la evaluación de funciones matemáticas puras, 
+evitando el cambio de estado y los datos mutables.
+Ejemplo: Haskell (puro).
+- Paradigma Lógico: Basado en la lógica de predicados de primer orden. 
+Los programas se estructuran mediante hechos y reglas, 
+y el motor de inferencia busca soluciones por unificación y backtracking.
+Ejemplo: Prolog.
+
+c)
+Sí, existen. En la jerga de la materia se les conoce comúnmente como lenguajes multiparadigma. 
+Son lenguajes diseñados para combinar características de diferentes enfoques 
+(por ejemplo, Objetos + Funcional) para dar mayor flexibilidad al desarrollador.
+Ejemplos: Python (soporta imperativo, objetos y elementos funcionales) y JavaScript (soporta prototipos/objetos y funcional).
+
+d)
+Una función partida (o definida por tramos) es aquella que posee diferentes 
+fórmulas de resolución según el valor o las condiciones de sus argumentos de entrada.
+Ejemplo en haskell:
+funcionPartida :: Int -> Int
+funcionPartida x
+  | x > 0     = x * 2
+  | otherwise = 0
+
+2) Funcional
+a) 
+Asumiendo que largoDeListon es una constante numérica 
+(por ejemplo, de tipo Float o Int), el análisis es el siguiente:
+meAlcanza largo = largo <= largoDeListon
+Dominio: El tipo de dato del parámetro largo. 
+Debe ser un tipo que pertenezca a la clase de tipos ordenada (Ord), 
+típicamente un número (Float, Double o Int).
+Imagen: El tipo del resultado. Como utiliza un operador de comparación (<=), 
+la imagen es Bool (True o False).
+cuantoMeSobra cantidad = largoDeListon – cantidad
+Dominio: El tipo de dato del parámetro cantidad. 
+Debe pertenecer a la clase de tipos numérica (Num), ya que se le aplica una resta.
+Imagen: El tipo del resultado. Al restar dos números del mismo tipo, 
+la imagen es del mismo tipo numérico que la entrada (Float, Int, etc.).
+
+b) ¿Para qué se utiliza la Unicidad y la Existencia?
+Estos conceptos se vinculan fuertemente con el modelado y el uso de cuantificadores lógicos 
+mediante funciones de orden superior sobre colecciones:
+Existencia ($\exists$): Se utiliza para verificar si al menos un elemento de un conjunto 
+cumple con una condición determinada. 
+En Haskell se implementa con la función any.
+Unicidad ($\exists!$): Se utiliza para asegurar que exactamente uno 
+(y solo uno) de los elementos de un conjunto cumple la condición.
+En Haskell se suele resolver filtrando la lista con la condición 
+y verificando que la longitud de la lista resultante sea exactamente 1 
+(length (filter condicion lista) == 1).
+
+c) ¿Qué implica el principio de sustitución?
+Derivado de la Transparencia Referencial, implica que el valor de una expresión 
+depende únicamente de sus argumentos y no del momento o contexto de ejecución. 
+Por ende, cualquier expresión puede ser sustituida por su resultado
+(o por otra expresión equivalente) en cualquier parte del programa sin alterar el comportamiento 
+o el efecto del mismo. 
+No existen los "efectos colaterales".
+
+d) ¿Qué es el Pattern Matching?
+El Pattern Matching (o emparejamiento de patrones) es un mecanismo que permite 
+deconstruir datos y ramificar la ejecución de una función según la "forma" 
+o estructura del argumento de entrada. Permite verificar si un valor coincide 
+con una estructura dada (un valor directo, una tupla, una lista vacía [], o una cabeza y cola (x:xs)) 
+y, de ser así, ligar variables a sus partes internas inmediatamente.
+
+e) Tres tipos de datos usados en Haskell.
+Int / Integer: Enteros (de precisión fija o arbitraria).
+Bool: Valores lógicos (True o False).
+Char: Un único carácter unicode (ej: 'a').
+
+f) ¿Qué significa inferencia de tipos sobre una función dada?
+Es la capacidad que tiene el compilador (como GHC) de deducir automáticamente 
+el tipo más genérico y seguro de una función analizando las operaciones y funciones 
+que se aplican sobre sus variables de entrada, sin necesidad de que el programador
+ declare explícitamente la firma de tipos.
+
+g) Diferencia entre declarar una t-upla y un Data.
+Tupla: Es un tipo de dato anónimo y estructural. 
+Se define simplemente agrupando componentes por su posición (Valor1, Valor2). 
+No tiene un nombre propio para el tipo general ni para sus campos; 
+su identidad está dada puramente por la estructura y orden de sus tipos (ej: (String, Int)).
+Data (Tipos algebraicos de datos): Es un tipo nominativo y explícito.
+Permite crear un tipo de dato con un nombre propio (ej: data Persona = ...)
+y definir constructores de datos que pueden llevar etiquetas/nombres de campos (Syntax Record),
+ganando expresividad, tipado semántico y control sobre el dominio del problema.
+     
+h) Diferencia entre Aplicación Parcial y Composición de Funciones.Aplicación Parcial: Consiste en pasarle a una función menos argumentos de los que requiere formalmente. Debido al currying, esto devuelve una nueva función que queda a la espera de los parámetros restantes. (Ej: sumar 3 devuelve una función que suma 3 a lo que reciba).Composición de Funciones (.): Es el acto de combinar dos o más funciones para crear una nueva función, donde la salida de una se convierte automáticamente en la entrada de la otra (matemáticamente $f(g(x))$). (Ej: esPar . longitud toma una lista, calcula su tamaño y luego verifica si es par).i) ¿A qué se denomina Recursividad? Ejemplo.Es una técnica de programación donde una función se define en términos de sí misma, llamándose directamente a sí misma dentro de su propio cuerpo para resolver subproblemas más pequeños, hasta alcanzar un "caso base" o condición de corte que detiene el bucle.Ejemplo (Factorial):Haskellfactorial :: Int -> Int
+factorial 0 = 1                      -- Caso Base
+factorial n = n * factorial (n - 1)  -- Caso Recursivo
+
+j) ¿A qué se denomina Orden Superior? Dos funciones.
+Una función es de Orden Superior (Higher-Order Function) si cumple con al menos
+una de estas dos condiciones:
+Recibe una o más funciones como parámetros.
+Devuelve una función como resultado de su ejecución.
+Dos funciones clásicas:
+map: Recibe una función y una lista; 
+aplica la función a cada elemento de la lista.
+filter: Recibe una función predicado (a -> Bool) y una lista; 
+devuelve los elementos que cumplen la condición.
+
+3) Lógico
+a) Diferencia entre un predicado y una función de Haskell.
+Una función de Haskell toma valores de entrada y mediante un mapeo determinista 
+genera un único valor de salida/imagen. 
+Trabaja de forma direccional (Entrada $\rightarrow$ Salida).
+Un predicado lógico no produce un valor de salida; 
+expresa una relación entre términos que puede ser verdadera o falsa. 
+Además, es inversible: sus argumentos no tienen dirección fija, 
+permitiendo usar un parámetro tanto para validar (pasar un dato fijo) 
+como para generar (pasar una variable libre).
+
+b) ¿A qué se llama evaluación EAGER?
+La evaluación Eager (o evaluación ansiosa/estricta) 
+es una estrategia de evaluación donde los argumentos de una función son calculados
+por completo antes de que la función sea ejecutada.
+Nota de color para la materia: Es el opuesto de la evaluación perezosa (Lazy Evaluation) de Haskell. 
+Paradigmas como el Imperativo u Objetos suelen ser puramente Eager.
+
+c) ¿A qué se denomina Átomo, Hechos y Reglas?
+Son los componentes esenciales de una base de conocimientos en Prolog:
+Átomo: Un identificador constante que empieza con minúscula (ej: juan, sabana). 
+Representa un objeto o entidad concreta del universo del discurso que se autodefine por su nombre.
+Hechos: Afirmaciones incondicionales que establecen una relación entre términos 
+o una propiedad de un objeto. Se asumen siempre verdaderas (ej: habita(leon, sabana).).
+Reglas: Afirmaciones condicionales que definen una relación basándose en otras. 
+Tienen una cabeza (conclusión) y un cuerpo (condiciones). 
+Se lee: "La cabeza es verdadera si el cuerpo es verdadero" 
+(ej: abuelo(X, Y) :- padre(X, Z), padre(Z, Y).).
+
+d) Diferencia entre consultas individuales y existenciales.
+Consultas Individuales (o de verificación): Se realizan pasando únicamente valores puntuales 
+(constantes) a los argumentos del predicado. 
+El motor responde únicamente de forma booleana (true o false), 
+verificando si esa tupla de datos pertenece a la relación. (Ej: ? - habita(leon, sabana).).
+Consultas Existenciales (o de generación): Se realizan pasando al menos una Variable incognita 
+(que comienza con mayúscula). El motor busca activamente en la base de conocimientos qué 
+elementos pueden unificar con esa variable para hacer verdadera la consulta, 
+devolviendo los valores encontrados (ligaduras). (Ej: ? - habita(X, sabana).).
+
+e) ¿Cómo se mezcla la aritmética en este paradigma? ¿Cómo se usa el =?
+Prolog no es un lenguaje de cálculo nativo, por lo que la aritmética rompe un poco 
+la pureza del paradigma:
+Para evaluar expresiones aritméticas, no se puede usar el signo = porque este realiza 
+Unificación (intenta hacer que dos estructuras sean iguales sin resolver la matemática; 
+X = 2 + 2 da como resultado la estructura X = 2 + 2 y no 4).
+Para obligar al motor a calcular matemáticamente, se utiliza el operador is. 
+El operador is evalúa la expresión de la derecha y unifica el resultado numérico 
+con el término de la izquierda (ej: X is 2 + 2. asignará 4 a X).
+
+f) ¿Cómo se relacionan los functores con el orden superior de funcional?
+Es una analogía común en exámenes, pero requiere cuidado:
+Un functor en Prolog es un constructor de datos compuestos 
+(un átomo que agrupa otros términos, ej: fecha(2, junio, 2026)). 
+No es una función ejecutable ni código, es una estructura de datos polimórfica.
+La relación conceptual: Ambos permiten modelar abstracciones complejas envolviendo lógica o datos. 
+Sin embargo, el verdadero equivalente al "Orden Superior" en Prolog no son los functores, 
+sino los predicados de orden superior como forall/2, findall/3 o maplist/2, 
+que reciben otros predicados como argumentos para operar sobre ellos.
