@@ -1,9 +1,12 @@
-# Ejercicio 1:Dado el predicado come/2 que relaciona a un animal con otro al cual se come, modelar los siguientes predicados: # Hostil/1: Relaciona un animal con un bioma si todos los animales que lo habitan se lo comen.  # Terrible/1: Relaciona un animal con un bioma si todos los animales que se lo comen habitan ahí.
-# Compatibles/2: Relaciona dos animales si ninguno de los dos se come al otro.
-# Adaptable/1: Se cumple para todos los animales que habitan en todos los biomas.
-# Raro/1: Se cumple para todos los animales que habitan en un único bioma.
-# Dominante/1: Se cumple para todos los animales que se comen a todos los otros animales del bioma en el que viven.
-% base de datos habita(Animal, Bioma)
+% # Ejercicio 1:Dado el predicado come/2 que relaciona a un animal con otro al cual se come, modelar los siguientes predicados: 
+% # Hostil/1: Relaciona un animal con un bioma si todos los animales que lo habitan se lo comen. 
+% # Terrible/1: Relaciona un animal con un bioma si todos los animales que se lo comen habitan ahí.
+% # Compatibles/2: Relaciona dos animales si ninguno de los dos se come al otro.
+% # Adaptable/1: Se cumple para todos los animales que habitan en todos los biomas.
+% # Raro/1: Se cumple para todos los animales que habitan en un único bioma.
+% # Dominante/1: Se cumple para todos los animales que se comen a todos los otros animales del bioma en el que viven.
+% base de datos 
+habita(Animal, Bioma)
 animal(Animal)
 come(Comedor, Comido)
 
