@@ -1,6 +1,4 @@
 -- Resolver un problema para una librería
--- Si es cierto que cierta persona escribió alguna obra, sin importar cual.
--- Si es cierto que cierta obra existe.
 -- Resolver un problema para una librería
 type Titulo = String
 type Autor = String
@@ -26,3 +24,13 @@ quienesEscribieron obra = autores obra
 -- ¿Qué obras escribió cierta persona?
 queObrasEscribio :: Autor -> [Obra]
 queObrasEscribio unAutor = filter(\obra-> any(\autor -> autor == unAutor) (autores obra) ) todasLasObras
+
+-- Si es cierto que cierta persona escribió alguna obra, sin importar cual.
+escribioAlgunaObra :: Autor -> Bool
+escribioALgunaObra unAutor = any(\obra -> any(\autor -> autor == unAutor) (autores obra))todasLasObras
+-- O si no
+escribioAlgunaObra :: Autor -> Bool
+escribioAlgunaObra unAutor = not(null(queObrasEscribio unAutor))
+-- Existe una Obra determinada
+existeLaObra :: Titulo -> Bool
+alguienEscribio unTitulo = any (\obra -> titulo obra == unTitulo) todasLasObras)
