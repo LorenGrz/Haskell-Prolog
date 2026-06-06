@@ -41,3 +41,11 @@ import Data.List (inPrefixOf)
 nombresConBat :: [Carta] -> [String]
 nombresConBat unMazo = map nombre (filter (\carta -> "bat" `isPrefixOf` nombre carta)unMazo)
 
+-- # Corregir las cartas a las que pusieron 
+-- # tag #alguien en lugar de #alien
+
+corregirCartas :: [Carta] -> [Carta]
+corregirCartas unMazo = map (\carta -> carta { tags = map cambiarTag (tags carta)}) unMazo
+  where
+    cambiarTag "alguien" = "alien"
+    cambiarTag otroTag = otroTag

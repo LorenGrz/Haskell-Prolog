@@ -27,7 +27,7 @@ e) Como se mezcla la aritmética en este paradigma? Como se usa el =?
 f) Como se relacionan los functores con el orden superior de funcional?
 
 1)
-a) 
+a) Enumere dos diferencia entre lenguajes de programación y paradigmas.
 - Nivel de abstracción / Concepto vs. Implementación: Un paradigma es un modelo,
 enfoque o filosofía de desarrollo que determina cómo se estructura el pensamiento
 para resolver un problema (un plano mental).
@@ -39,7 +39,7 @@ Los lenguajes son tecnologías tangibles.
 Un lenguaje puede adoptar un único paradigma (puro) o múltiples paradigmas (multiparadigma),
 pero un paradigma existe de forma independiente a cualquier lenguaje.
 
-b)
+b)Enumere 2 paradigmas vistos en clase y dé un ejemplo de lenguajes que lo implementan.
 - Paradigma Funcional: Centrado en la evaluación de funciones matemáticas puras, 
 evitando el cambio de estado y los datos mutables.
 Ejemplo: Haskell (puro).
@@ -48,13 +48,13 @@ Los programas se estructuran mediante hechos y reglas,
 y el motor de inferencia busca soluciones por unificación y backtracking.
 Ejemplo: Prolog.
 
-c)
+c)Existen lenguajes híbridos? Enumere dos.
 Sí, existen. En la jerga de la materia se les conoce comúnmente como lenguajes multiparadigma. 
 Son lenguajes diseñados para combinar características de diferentes enfoques 
 (por ejemplo, Objetos + Funcional) para dar mayor flexibilidad al desarrollador.
 Ejemplos: Python (soporta imperativo, objetos y elementos funcionales) y JavaScript (soporta prototipos/objetos y funcional).
 
-d)
+d)Dé un ejemplo de función partida.
 Una función partida (o definida por tramos) es aquella que posee diferentes 
 fórmulas de resolución según el valor o las condiciones de sus argumentos de entrada.
 Ejemplo en haskell:
@@ -64,7 +64,10 @@ funcionPartida x
   | otherwise = 0
 
 2) Funcional
-a) 
+a) Cual es el dominio e imagen de las siguientes funciones:
+	     Mealcanza largo = largo <= largoDeListon
+	     CuantoMesobra cantidad = largoDeListon – cantidad
+       
 Asumiendo que largoDeListon es una constante numérica 
 (por ejemplo, de tipo Float o Int), el análisis es el siguiente:
 meAlcanza largo = largo <= largoDeListon
