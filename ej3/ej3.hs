@@ -11,4 +11,6 @@
 
 -- Base de DATOS
 -- todasLasObras::[Obra]
--- todasLasObras = [UnaObra “sandman” [“gaiman”], UnaObra “socorro” [“ElsaBornemann”], UnaObra “buenos presagios” [“gaiman”, “pratchett”]]
+-- todasLasObras = [UnaObra “sandman” [“gaiman”], UnaObra “socorro” [“ElsaBornemann”], 
+-- UnaObra “buenos presagios” [“gaiman”, “pratchett”]]
+
