@@ -19,4 +19,3 @@ hermano(Hermano1, Hermano2):-
 ancestro(Ancestro, Descendiente):-
     padre(Ancestro, Descendiente),
     ancestro(Intermedio, Descendiente).
-
